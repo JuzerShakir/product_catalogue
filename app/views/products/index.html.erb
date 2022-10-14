@@ -1,0 +1,15 @@
+<% if @products.any? %>
+    <% @products.each do |product| %>
+        <p>*Name: <%= product.name %> </p>
+        <p>UPC: <%= product.upc %> </p>
+        <p>Available On: <%= product.available_on %> </p>
+
+        <% if product.properties.any? %>
+        Properties:
+            <% product.properties.each do |property| %>
+                (<%= property.name %>:)
+            <% end %>
+        <% end %>
+        <p>----</p>
+    <% end %>
+<% end %>

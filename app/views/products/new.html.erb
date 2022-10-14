@@ -1,0 +1,40 @@
+<%= current_user.email %>
+
+<h2>Product</h2>
+
+<% if @product.errors.any? %>
+    <% @product.errors.full_messages.each do | message |%>
+        <p><%= message %></p>
+    <% end %>
+<% end %>
+
+<%= form_with model: @product do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <br>
+
+    <%= form.label :upc, "UPC" %>
+    <%= form.text_field :upc %>
+
+    <br>
+
+    <%= form.label :available_on %>
+    <%= form.datetime_local_field :available_on %>
+
+    <br>
+
+    <h3>Properties</h3>
+    <%= form.fields_for :properties do | prop | %>
+        <%= prop.label :name, "Property Name" %>
+        <%= prop.text_field :name %>
+    <% end %>
+
+    <%= form.fields_for :product_properties do | prod_prop | %>
+        <%= prod_prop.label :value, "Property Value" %>
+        <%= prod_prop.text_field :value %>
+    <% end %>
+    <br>
+
+    <%= form.submit %>
+<% end %>
