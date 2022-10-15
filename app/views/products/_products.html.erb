@@ -6,10 +6,11 @@
             <p>Available On: <%= product.available_on %> </p>
 
             <% if product.properties.any? %>
-            Properties:
+            Properties:(
                 <% product.properties.each do |property| %>
-                    (<%= property.name %>:)
+                    <%= property.name %>:<%=property.product_properties.pluck(:value).join %>
                 <% end %>
+            )
             <% end %>
             <p>----</p>
         <% end %>
