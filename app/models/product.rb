@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true, length: { maximum: 1024 }
 
-  validates :upc, presence: true, uniqueness: true, format: { with: /\A\d{12,13}$|^\d{10}\z/, message: "is invalid"}
+  validates :upc, presence: true, uniqueness: true, format: { with: /\A\d{12,13}$|^\d{10}\z/, message: "length must be 10, 12 or 13"}
 
   validates :available_on, presence: true,
                   inclusion: { in: (Time.now.next_day.at_beginning_of_day..), message: "must be in future" }
