@@ -11,9 +11,8 @@ class ProductsController < ApplicationController
 
     def new
         @product = Product.new
-        # @property = Property.new
-        @product.properties.build
-        @product.product_properties.build
+        @product_property = @product.product_properties.build
+        @product_property.build_property
     end
 
     def create
@@ -29,6 +28,7 @@ class ProductsController < ApplicationController
     private
         def product_params
             params.require(:product).permit(:name, :upc, :available_on,
-                                        properties_attributes: [:name], product_properties_attributes: [:value] )
+                                        product_properties_attributes: [:id, :value,
+                                                                        property_attributes: [:id, :name]] )
         end
 end

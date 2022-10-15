@@ -1,9 +1,8 @@
 class Product < ApplicationRecord
   has_many :product_properties
-  accepts_nested_attributes_for :product_properties, allow_destroy: true
+  accepts_nested_attributes_for :product_properties
 
   has_many :properties, through: :product_properties
-  accepts_nested_attributes_for :properties, allow_destroy: true
 
   belongs_to :user
 
