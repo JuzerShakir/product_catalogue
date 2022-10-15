@@ -1,15 +1,8 @@
-<% if @products.any? %>
-    <% @products.each do |product| %>
-        <p>*Name: <%= product.name %> </p>
-        <p>UPC: <%= product.upc %> </p>
-        <p>Available On: <%= product.available_on %> </p>
+<%= form_with(url: :products, method: :get, data: { turbo_frame: "products" }) do |form|  %>
+    <%= form.label :query, "Search Products" %>
+    <%= form.text_field :query %>
 
-        <% if product.properties.any? %>
-        Properties:
-            <% product.properties.each do |property| %>
-                (<%= property.name %>:)
-            <% end %>
-        <% end %>
-        <p>----</p>
-    <% end %>
+    <%= form.submit "Search" %>
 <% end %>
+
+<%= render "products", products: @products %>

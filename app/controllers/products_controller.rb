@@ -2,7 +2,11 @@ class ProductsController < ApplicationController
     before_action :authenticate_user!, only: [:new]
 
     def index
-        @products = current_user.products
+        if params[:query].present?
+            @products = current_user.products.where("name LIKE ?", "#{params[:query]}%")
+        else
+            @products = current_user.products
+        end
     end
 
     def new
