@@ -3,9 +3,9 @@ class ProductsController < ApplicationController
 
     def index
         if params[:query].present?
-            @products = current_user.products.where("name LIKE ?", "#{params[:query]}%")
+            @products = current_user.products.includes(:properties).where("name LIKE ?", "#{params[:query]}%")
         else
-            @products = current_user.products
+            @products = current_user.products.includes(:properties)
         end
     end
 
