@@ -3,9 +3,7 @@
 <h2>Product</h2>
 
 <% if @product.errors.any? %>
-    <% @product.errors.full_messages.each do | message |%>
-        <p><%= message %></p>
-    <% end %>
+    <%= render "shared/validation_errors", model: @product %>
 <% end %>
 
 <%= form_with model: @product do |form| %>
