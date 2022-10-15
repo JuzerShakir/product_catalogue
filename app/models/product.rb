@@ -10,5 +10,6 @@ class Product < ApplicationRecord
 
   validates :upc, presence: true, uniqueness: true, format: { with: /\A\d{12,13}$|^\d{10}\z/, message: "is invalid"}
 
-  validates :available_on, presence: true
+  validates :available_on, presence: true,
+                  inclusion: { in: (Time.now.next_day.at_beginning_of_day..), message: "must be in future" }
 end
