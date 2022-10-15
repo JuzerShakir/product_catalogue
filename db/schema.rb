@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_102703) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_properties_on_name", unique: true
