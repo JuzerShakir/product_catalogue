@@ -3,7 +3,7 @@
         <% @products.each do |product| %>
             <p>*Name: <%= product.name %> </p>
             <p>UPC: <%= product.upc %> </p>
-            <p>Available On: <%= product.available_on.strftime("%m/%d/%Y")  %> </p>
+            <p>Available On: <%= product.available_on.strftime("%d/%m/%Y")  %> </p>
 
             <% if product.properties.any? %>
             Properties:(
