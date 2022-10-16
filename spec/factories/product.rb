@@ -5,6 +5,6 @@ FactoryBot.define do
     # name { "MyString" }
     sequence(:upc, 1000000000).to_s
     # upc { "MyString" }
-    available_on { Time.now + 7200 }
+    available_on { Date.tomorrow }
   end
 end

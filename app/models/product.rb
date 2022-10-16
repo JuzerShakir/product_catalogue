@@ -11,5 +11,5 @@ class Product < ApplicationRecord
   validates :upc, presence: true, uniqueness: true, format: { with: /\A\d{12,13}\z|\A\d{10}\z/, message: "length must be 10, 12 or 13"}
 
   validates :available_on, presence: true,
-                  inclusion: { in: (Time.now.next_day.at_beginning_of_day..), message: "must be in future" }
+                  inclusion: { in: (Date.tomorrow..), message: "must be in future" }
 end

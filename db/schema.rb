@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_102703) do
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.string "upc", null: false
-    t.datetime "available_on", null: false
+    t.date "available_on", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
