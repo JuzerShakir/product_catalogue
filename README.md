@@ -46,11 +46,23 @@ cd product_catalogue
 bundle install
 ```
 
-### Setup PostgreSQL
+### Setup PostgreSQL Credentials
 
 To successfully create development and test database, you will need to update `config.database.yml` file with correct postgresql username and password.
 
-There are multiple ways of creating it, we can use ENV or Rails Credentials:
+There are multiple ways of passing it, we can either use ENV or Rails Credentials:
+
+#### With ENV
+
+There are multiple ways of creating it:
+ 
+1. With Bash/ZSH
+2. With Figaro Gem
+3. Or Manually loading ENV hash keys.
+
+To setup credentials in my local environment, I have used the first option.
+For this project I have used the first option. You are open to choose any you see fit. You can follow [this guide] (#http://railsapps.github.io/rails-environment-variables.html) to learn more about it and how to use them. 
+
 
 #### With Rails Credentials
 
