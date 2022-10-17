@@ -60,8 +60,7 @@ There are multiple ways of creating it:
 2. With Figaro Gem
 3. Or Manually loading ENV hash keys.
 
-To setup credentials in my local environment, I have used the first option.
-For this project I have used the first option. You are open to choose any you see fit. You can follow [this guide] (#http://railsapps.github.io/rails-environment-variables.html) to learn more about it and how to use them. 
+For this project I have used the first option but you're re open to choose any you see fit. You can refer to [this guide](#http://railsapps.github.io/rails-environment-variables.html) to learn more about these options. 
 
 
 #### With Rails Credentials
