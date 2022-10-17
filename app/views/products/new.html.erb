@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="mt-3">
-    <%= form_with model: @product do | prod | %>
+    <%= form_with model: @product, url: user_products_path do | prod | %>
         <%= prod.label :name, class: "form-label mt-3" %>
         <%= prod.text_field :name, class: "form-control", placeholder: "Xbox" %>
 

@@ -1,4 +1,4 @@
-<%= form_with(url: :products, method: :get, data: { turbo_frame: "products" }) do |form|  %>
+<%= form_with(url: root_url, method: :get, data: { turbo_frame: "products" }) do |form|  %>
     <div class="input-group mb-5">
         <%= form.text_field :query, class: "form-control", placeholder: "Search Products" %>
         <%= form.submit "Search",  class: "btn btn-primary" %>

@@ -12,7 +12,7 @@
           <%= link_to "Products", root_path, class:"nav-link active"  %>
         </li>
         <li class="nav-item">
-          <%= link_to "Create Product", new_product_path, class:"nav-link active"  %>
+          <%= link_to "Create Product", new_user_product_path(current_user), class:"nav-link active"  %>
         </li>
       </ul>
       <form class="d-flex">
