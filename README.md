@@ -81,3 +81,8 @@ Now, inside the `database.yml` file give the following values to the credential 
   username: <%= Rails.application.credentials.dig(:database, :username) %>
   password: <%= Rails.application.credentials.dig(:database, :password) %>
 ```
+
+Once you have setup your database credentials, we can now create and setup the database:
+```bash
+rails db:setup
+```
