@@ -25,10 +25,6 @@ RSpec.describe Product, type: :model do
     end
 
     context "upc" do
-      it "should be present" do
-        expect(new_product.upc).to_not be_empty
-      end
-
       it "should be unique" do
         expect(Product.pluck(:upc)).not_to include(new_product.upc)
       end
