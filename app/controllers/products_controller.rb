@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-    before_action :authenticate_user!, only: [:new]
+    before_action :authenticate_user!
 
     def index
         if params[:query].present?
