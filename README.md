@@ -14,19 +14,13 @@
 
 </div>
 
-<div align="center">
-  <img src="https://visitor-badge-reloaded.herokuapp.com/badge?page_id=juzershakir.imdb_api&color=000000&lcolor=000000&style=for-the-badge&logo=Github"/>
-  <a href="https://wakatime.com/badge/user/ccef187f-4308-4666-920d-d0a9a07d713a/project/509003f7-2b71-4958-be09-1a0d27b03a0c"><img src="https://wakatime.com/badge/user/ccef187f-4308-4666-920d-d0a9a07d713a/project/509003f7-2b71-4958-be09-1a0d27b03a0c.svg" alt="wakatime"></a>
-</div>
-
--------
-
-<br>
+---
 
 ## Summary
-This project is created based on [these guiedlines](https://gist.github.com/kitwalker12/a46b1c2cc8363cf94fdbdc7feae3573f)
 
-------
+This project is created based on [these guidelines](https://gist.github.com/kitwalker12/a46b1c2cc8363cf94fdbdc7feae3573f)
+
+---
 
 ## Running the App
 
@@ -34,7 +28,7 @@ This project is created based on [these guiedlines](https://gist.github.com/kitw
 
 The following will install required version of ruby (make sure [rvm is installed](https://rvm.io/rvm/install).)
 
-Run the following commands to in your terminal: 
+Run the following commands to in your terminal:
 
 ```bash
 git clone git@github.com:JuzerShakir/product_catalogue.git
@@ -55,13 +49,12 @@ There are multiple ways of passing it, we can either use ENV or Rails Credential
 #### With ENV
 
 There are multiple ways of creating it:
- 
+
 1. With Bash/ZSH
 2. With Figaro Gem
 3. Or Manually loading ENV hash keys.
 
-For this project I have used the first option but you're open to choose any you see fit. You can refer to [this guide](http://railsapps.github.io/rails-environment-variables.html) to learn more about these options. 
-
+For this project I have used the first option but you're open to choose any you see fit. You can refer to [this guide](http://railsapps.github.io/rails-environment-variables.html) to learn more about these options.
 
 #### With Rails Credentials
 
@@ -89,11 +82,12 @@ Rails.application.credentials.dig(:database, :username)
 Now, inside the `database.yml` file give the following values to the credential keys:
 
 ```yml
-  username: <%= Rails.application.credentials.dig(:database, :username) %>
-  password: <%= Rails.application.credentials.dig(:database, :password) %>
+username: <%= Rails.application.credentials.dig(:database, :username) %>
+password: <%= Rails.application.credentials.dig(:database, :password) %>
 ```
 
 Once you have setup your database credentials, we can now create and setup the database:
+
 ```bash
 rails db:setup
 ```
