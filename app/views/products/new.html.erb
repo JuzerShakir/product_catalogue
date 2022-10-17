@@ -42,7 +42,7 @@
     <br>
 
     <div class="links">
-        <%= link_to_add_association 'Add More Properties', prod, :product_properties %>
+        <%= link_to_add_association 'Add More Properties', prod, :product_properties, :wrap_object => Proc.new {|quantity| quantity.build_property; quantity } %>
     </div>
 
     <br>
