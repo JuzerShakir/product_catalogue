@@ -11,8 +11,8 @@ class ProductsController < ApplicationController
 
     def new
         @product = Product.new
-        @product_property = @product.product_properties.build
-        @product_property.build_property
+        @product.product_properties.build.build_property
+        # @product_property.build_property
     end
 
     def create

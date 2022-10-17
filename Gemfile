@@ -68,3 +68,6 @@ gem "devise", "~> 4.8"
 
 gem "factory_bot_rails", "~> 6.2"
 gem 'shoulda-matchers', '~> 5.0', group: :test
+gem "jquery-rails", "~> 4.5"
+
+gem "cocoon", "~> 1.2"

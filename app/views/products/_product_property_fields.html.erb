@@ -1,0 +1,6 @@
+<tr>
+    <td><%= f.text_field :value %></td>
+    <%= f.fields_for :property do | prop | %>
+        <td><%= prop.text_field :name %></td>
+    <% end %>
+</tr>

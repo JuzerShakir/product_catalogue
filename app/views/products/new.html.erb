@@ -25,15 +25,25 @@
 
     <h3>Properties</h3>
 
-    <%= prod.fields_for :product_properties do | prod_prop | %>
-        <%= prod_prop.label :value, "Property Value" %>
-        <%= prod_prop.text_field :value %>
+    <table>
+        <thead>
+        <tr>
+            <th>Property Value</th>
+            <th>Property Name</th>
+        </tr>
+        </thead>
+        <tbody class="product_properties">
+            <%= prod.fields_for :product_properties do | prod_prop | %>
+                <%= render "product_property_fields", f: prod_prop %>
+            <% end %>
+        </tbody>
+    </table>
 
-        <%= prod_prop.fields_for :property do | prop | %>
-            <%= prop.label :name, "Property Name" %>
-            <%= prop.text_field :name %>
-        <% end %>
-    <% end %>
+    <br>
+
+    <div class="links">
+        <%= link_to_add_association 'Add More Properties', prod, :product_properties %>
+    </div>
 
     <br>
 
