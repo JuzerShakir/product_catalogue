@@ -1,18 +1,10 @@
 <%= turbo_frame_tag "products" do %>
-    <% if @products.any? %>
         <% @products.each do |product| %>
             <p>*Name: <%= product.name %> </p>
             <p>UPC: <%= product.upc %> </p>
             <p>Available On: <%= product.available_on.strftime("%d/%m/%Y")  %> </p>
 
-            <% if product.properties.any? %>
-            Properties:(
-                <% product.properties.each do |property| %>
-                    <%= property.name %>:<%=property.product_properties.pluck(:value).join %>
-                <% end %>
-            )
-            <% end %>
+            Properties:( <%= properties_listing_of product %> )
             <p>----</p>
         <% end %>
-    <% end %>
 <% end %>
