@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/product_catalogue.png" />
+  <img src="public/project_logo.png" />
   <h2>Product Catalogue</h2>
   <p>A web application with ability to create multiple properties and values of a product in a single form. </p>
 </div>
