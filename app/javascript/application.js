@@ -3,3 +3,6 @@ import "@hotwired/turbo-rails";
 import "controllers";
 import "jquery";
 import "@nathanvda/cocoon";
+import "jquery_ujs";
+import "popper";
+import "bootstrap";

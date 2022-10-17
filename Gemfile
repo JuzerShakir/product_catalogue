@@ -71,3 +71,7 @@ gem 'shoulda-matchers', '~> 5.0', group: :test
 gem "jquery-rails", "~> 4.5"
 
 gem "cocoon", "~> 1.2"
+
+gem "bootstrap", "~> 5.2"
+
+gem "sassc-rails", "~> 2.1"
