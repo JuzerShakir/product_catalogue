@@ -18,3 +18,66 @@
   <img src="https://visitor-badge-reloaded.herokuapp.com/badge?page_id=juzershakir.imdb_api&color=000000&lcolor=000000&style=for-the-badge&logo=Github"/>
   <a href="https://wakatime.com/badge/user/ccef187f-4308-4666-920d-d0a9a07d713a/project/509003f7-2b71-4958-be09-1a0d27b03a0c"><img src="https://wakatime.com/badge/user/ccef187f-4308-4666-920d-d0a9a07d713a/project/509003f7-2b71-4958-be09-1a0d27b03a0c.svg" alt="wakatime"></a>
 </div>
+
+-------
+
+<br>
+
+## Summary
+This project is created based on [these guiedlines](https://gist.github.com/kitwalker12/a46b1c2cc8363cf94fdbdc7feae3573f)
+
+------
+
+## Running the App
+
+### Setup env for the app
+
+The following will install required version of ruby (make sure [rvm is installed](https://rvm.io/rvm/install).)
+
+Run the following commands to in your terminal: 
+
+```bash
+git clone git@github.com:JuzerShakir/product_catalogue.git
+
+gem install rails -v 7.0.4
+
+cd product_catalogue
+
+bundle install
+```
+
+### Setup PostgreSQL
+
+To successfully create development and test database, you will need to update `config.database.yml` file with correct postgresql username and password.
+
+There are multiple ways of creating it, we can use ENV or Rails Credentials:
+
+#### With Rails Credentials
+
+```bash
+EDITOR="code --wait" rails credentials:edit
+```
+
+_`code` for Visual Studio Code_
+_`subl` for sublime_
+
+This will open `credential.yml` file, now enter your credential as follows:
+
+```
+database:
+  username: your_username
+  password: your_password
+```
+
+Hit `ctrl + s` to save and then close the `credential.yml` file from the editor. This will save the credentials. To check if it was a success, run the following inside the rails console:
+
+```
+Rails.application.credentials.dig(:database, :username)
+```
+
+Now, inside the `database.yml` file give the following values to the credential keys:
+
+```yml
+  username: <%= Rails.application.credentials.dig(:database, :username) %>
+  password: <%= Rails.application.credentials.dig(:database, :password) %>
+```
