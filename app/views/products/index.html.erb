@@ -1,8 +1,8 @@
 <%= form_with(url: :products, method: :get, data: { turbo_frame: "products" }) do |form|  %>
-    <%= form.label :query, "Search Products" %>
-    <%= form.text_field :query %>
-
-    <%= form.submit "Search" %>
+    <div class="input-group mb-5">
+        <%= form.text_field :query, class: "form-control", placeholder: "Search Products" %>
+        <%= form.submit "Search",  class: "btn btn-primary" %>
+    </div>
 <% end %>
 
 <%= render "products", products: @products %>

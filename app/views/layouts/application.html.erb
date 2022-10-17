@@ -11,13 +11,21 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+    <% if user_signed_in? %>
+      <%= render 'shared/signed_in_navbar' %>
+    <% else %>
+      <%= render 'shared/signed_out_navbar' %>
     <% end %>
 
-    <%= yield %>
+    <div class="container mt-5">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

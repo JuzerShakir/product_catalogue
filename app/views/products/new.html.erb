@@ -4,46 +4,38 @@
     <%= render "shared/validation_errors", model: @product %>
 <% end %>
 
+<div class="mt-3">
+    <%= form_with model: @product do | prod | %>
+        <%= prod.label :name, class: "form-label mt-3" %>
+        <%= prod.text_field :name, class: "form-control", placeholder: "Xbox" %>
 
-<%= form_with model: @product do | prod | %>
-    <%= prod.label :name %>
-    <%= prod.text_field :name %>
 
-    <br>
+        <%= prod.label :upc, "UPC", class: "form-label mt-3" %>
+        <%= prod.text_field :upc, class: "form-control", placeholder: "1234567890" %>
 
-    <%= prod.label :upc, "UPC" %>
-    <%= prod.text_field :upc %>
+        <%= prod.label :available_on, "Available On", class: "form-label mt-3" %>
+        <%= prod.date_field :available_on, class: "form-control", value: Date.tomorrow %>
 
-    <br>
+        <h3 class="mt-5">Properties</h3>
 
-    <%= prod.label :available_on %>
-    <%= prod.date_field :available_on %>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Property Value</th>
+                <th>Property Name</th>
+            </tr>
+            </thead>
+            <tbody class="product_properties">
+                <%= prod.fields_for :product_properties do | prod_prop | %>
+                    <%= render "product_property_fields", f: prod_prop %>
+                <% end %>
+            </tbody>
+        </table>
 
-    <br>
+        <div class="links mt-3">
+            <%= link_to_add_association 'Add More Properties', prod, :product_properties, :wrap_object => Proc.new {|quantity| quantity.build_property; quantity },  class: 'btn btn-primary btn-sm' %>
+        </div>
 
-    <h3>Properties</h3>
-
-    <table>
-        <thead>
-        <tr>
-            <th>Property Value</th>
-            <th>Property Name</th>
-        </tr>
-        </thead>
-        <tbody class="product_properties">
-            <%= prod.fields_for :product_properties do | prod_prop | %>
-                <%= render "product_property_fields", f: prod_prop %>
-            <% end %>
-        </tbody>
-    </table>
-
-    <br>
-
-    <div class="links">
-        <%= link_to_add_association 'Add More Properties', prod, :product_properties, :wrap_object => Proc.new {|quantity| quantity.build_property; quantity } %>
-    </div>
-
-    <br>
-
-    <%= prod.submit %>
-<% end %>
+        <%= prod.submit  class: 'btn btn-success btn-lg mt-5' %>
+    <% end %>
+</div>
