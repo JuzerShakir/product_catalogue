@@ -1,12 +1,12 @@
 <div class="row mt-3">
     <tr>
         <div class="col">
-            <td><%= f.text_field :value, class: "form-control", placeholder: "Red" %></td>
-        </div>
-        <div class="col">
             <%= f.fields_for :property do | prop | %>
                 <td><%= prop.text_field :name, class: "form-control", placeholder: "Color" %></td>
             <% end %>
+        </div>
+        <div class="col">
+            <td><%= f.text_field :value, class: "form-control", placeholder: "Red" %></td>
         </div>
     </tr>
 </div>
