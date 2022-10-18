@@ -1,8 +1,8 @@
 <%= turbo_frame_tag "products" do %>
     <% @products.each do |product| %>
-        <p class="mt-5"><b>Name:</b> <%= product.name %> </p>
-        <p class="mt-2"><b>UPC:</b> <%= product.upc %> </p>
-        <p class="mt-2"><b>Available On:</b> <%= product.available_on.strftime("%d/%m/%Y")  %> </p>
-        <p class="mt-2"><b>Properties:</b> ( <%= properties_listing_of product %> )
+        <p class="mt-5"><span class="fw-bold">Name:</span> <%= product.name %> </p>
+        <p class="mt-2"><span class="fw-bold">UPC:</span> <%= product.upc %> </p>
+        <p class="mt-2"><span class="fw-bold">Available On:</span> <%= product.available_on.strftime("%d/%m/%Y")  %> </p>
+        <p class="mt-2"><span class="fw-bold">Properties:</span> ( <%= properties_listing_of product %> )
     <% end %>
 <% end %>

@@ -7,14 +7,14 @@
 <div class="mt-3">
     <%= form_with model: @product, url: user_products_path do | prod | %>
         <%= prod.label :name, class: "form-label mt-3" %>
-        <%= prod.text_field :name, class: "form-control", placeholder: "Xbox" %>
+        <%= prod.text_field :name, autofocus: true, class: "form-control", placeholder: "Xbox" %>
 
 
         <%= prod.label :upc, "UPC", class: "form-label mt-3" %>
         <%= prod.text_field :upc, class: "form-control", placeholder: "1234567890" %>
 
         <%= prod.label :available_on, "Available On", class: "form-label mt-3" %>
-        <%= prod.date_field :available_on, class: "form-control", value: Date.tomorrow %>
+        <%= prod.date_field :available_on, class: "form-control" %>
 
         <h3 class="mt-5">Properties</h3>
 
