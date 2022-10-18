@@ -6,7 +6,7 @@ module ApplicationHelper
 
         output = ""
         properties.each do | property |
-            output << property.join(':') << ", "
+            output << property.join(': ') << ", "
         end
         output.delete_suffix(', ')
     end
