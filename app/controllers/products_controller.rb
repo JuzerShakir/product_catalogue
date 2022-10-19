@@ -36,6 +36,12 @@ class ProductsController < ApplicationController
         end
     end
 
+    def destroy
+        Product.find(params[:id]).destroy
+        flash[:notice] = "Deleted!"
+        render 'index'
+    end
+
     private
         def product_params
             params.require(:product).permit(:name, :upc, :available_on,

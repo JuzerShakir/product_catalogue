@@ -1,11 +1,15 @@
 <%= turbo_frame_tag "products" do %>
-    <% @products.each do |product| %>
-        <p class="mt-5"><span class="fw-bold">Name:</span> <%= product.name %> </p>
-        <p class="mt-2"><span class="fw-bold">UPC:</span> <%= product.upc %> </p>
-        <p class="mt-2"><span class="fw-bold">Available On:</span> <%= product.available_on.strftime("%d/%m/%Y")  %> </p>
-        <p class="mt-2"><span class="fw-bold">Properties:</span> ( <%= properties_listing_of product %> )
-        <div >
-            <%= link_to "Edit", edit_user_product_path(id: product.id, user_id: current_user.id ) , class: "btn btn-outline-primary" %>
-        </div>
+    <% if @products.present? %>
+        <% @products.each do |product| %>
+            <p class="mt-5"><span class="fw-bold">Name:</span> <%= product.name %> </p>
+            <p class="mt-2"><span class="fw-bold">UPC:</span> <%= product.upc %> </p>
+            <p class="mt-2"><span class="fw-bold">Available On:</span> <%= product.available_on.strftime("%d/%m/%Y")  %> </p>
+            <p class="mt-2"><span class="fw-bold">Properties:</span> ( <%= properties_listing_of product %> )
+            <div >
+                <%= link_to "Edit", edit_user_product_path(id: product.id, user_id: current_user.id ) , class: "btn btn-outline-primary" %>
+                <%= link_to "Delete", user_product_path(id: product.id, user_id: current_user.id ), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?" }, class: "btn btn-outline-danger" %>
+        <% end %>
+    <% else %>
+        <p>No products!</p>
     <% end %>
 <% end %>
