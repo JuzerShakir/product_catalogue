@@ -32,7 +32,7 @@
     </div>
 
     <div class="mt-4">
-        <%= link_to_add_association 'Add More Properties', prod, :product_properties, wrap_object: Proc.new {|quantity| quantity.build_property; quantity },  class: 'btn btn-primary btn-sm' %>
+        <%= link_to_add_association 'Add More Properties', prod, :product_properties, wrap_object: Proc.new {|quantity| quantity.build_property; quantity },  class: 'btn btn-outline-primary btn-sm' %>
     </div>
 
     <%= prod.submit  class: 'btn btn-success btn-lg mt-5' %>
