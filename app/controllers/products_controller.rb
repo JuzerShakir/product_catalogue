@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
     private
         def product_params
             params.require(:product).permit(:name, :upc, :available_on,
-                                        product_properties_attributes: [:id, :value,
-                                                                        property_attributes: [:id, :name]] )
+                                        product_properties_attributes: [:id, :value, :_destroy,
+                                                                property_attributes: [:id, :name]] )
         end
 end
