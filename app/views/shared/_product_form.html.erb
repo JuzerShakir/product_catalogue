@@ -1,9 +1,40 @@
-<%= prod.label :name, class: "form-label mt-3" %>
-<%= prod.text_field :name, autofocus: true, class: "form-control", placeholder: "Xbox"%>
+<%= form_with model: @product, url: path do | prod | %>
+    <%= prod.label :name, class: "form-label mt-3" %>
+    <%= prod.text_field :name, autofocus: true, class: "form-control", placeholder: "Xbox"%>
 
 
-<%= prod.label :upc, "UPC", class: "form-label mt-3" %>
-<%= prod.text_field :upc, class: "form-control", placeholder: "1234567890" %>
+    <%= prod.label :upc, "UPC", class: "form-label mt-3" %>
+    <%= prod.text_field :upc, class: "form-control", placeholder: "1234567890" %>
 
-<%= prod.label :available_on, "Available On", class: "form-label mt-3" %>
-<%= prod.date_field :available_on, class: "form-control" %>
+    <%= prod.label :available_on, "Available On", class: "form-label mt-3" %>
+    <%= prod.date_field :available_on, class: "form-control" %>
+
+    <h3 class="mt-5">Properties</h3>
+
+    <div class="row g-3">
+        <div class="col-md-4 mt-4 fw-bold">
+            <span>Property Name</span>
+        </div>
+
+        <div class="col-md-4 mt-4 fw-bold">
+            <span>Property Value</span>
+        </div>
+
+        <div class="col-md-4 mt-4 fw-bold">
+            <span>Delete</span>
+        </div>
+    </div>
+
+    <div class="product_properties">
+        <%= prod.fields_for :product_properties do | prod_prop | %>
+            <%= render "product_property_fields", f: prod_prop %>
+        <% end %>
+    </div>
+
+    <div class="mt-4">
+        <%= link_to_add_association 'Add More Properties', prod, :product_properties, wrap_object: Proc.new {|quantity| quantity.build_property; quantity },  class: 'btn btn-primary btn-sm' %>
+    </div>
+
+    <%= prod.submit  class: 'btn btn-success btn-lg mt-5' %>
+
+<% end %>
