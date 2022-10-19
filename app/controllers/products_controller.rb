@@ -16,14 +16,9 @@ class ProductsController < ApplicationController
 
     def create
         @product = current_user.products.new(product_params)
-        begin
-            if @product.save
-                redirect_to root_path, notice: "Success!"
-            else
-                render 'new', status: :unprocessable_entity
-            end
-        rescue ActiveRecord::RecordNotUnique
-            @product.errors.add(:product_properties_property_name, "has already been taken")
+        if @product.save
+            redirect_to root_path, notice: "Success!"
+        else
             render 'new', status: :unprocessable_entity
         end
     end
