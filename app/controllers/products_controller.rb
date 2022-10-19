@@ -38,8 +38,7 @@ class ProductsController < ApplicationController
 
     def destroy
         Product.find(params[:id]).destroy
-        flash[:notice] = "Deleted!"
-        render 'index'
+        redirect_to root_path
     end
 
     private
