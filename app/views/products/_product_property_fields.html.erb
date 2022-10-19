@@ -1,15 +1,15 @@
 <div class="row mt-1 nested-fields g-3">
-    <div class="col-md-4">
+    <div class="col-md-5">
         <%= f.fields_for :property do | prop | %>
             <%= prop.text_field :name, class: "form-control", placeholder: "Color"%>
         <% end %>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-5">
         <%= f.text_field :value, class: "form-control", placeholder: "Red" %>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-2">
         <%= f.fields_for :property do | prop | %>
             <%= link_to_remove_association 'Remove', prop, class: "btn btn-danger" %>
         <% end %>
