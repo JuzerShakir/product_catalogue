@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     def search
         respond_to do | format |
             format.turbo_stream do
-                @products = current_user.products.where("name LIKE ?", "#{params[:query]}%")
+                @products = current_user.products.includes(:properties).where("name LIKE ?", "#{params[:query]}%")
                 render turbo_stream: turbo_stream.update("search_products",
                                             partial: "products/products_search")
             end
