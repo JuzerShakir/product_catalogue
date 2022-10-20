@@ -1,21 +1,22 @@
-<%= turbo_frame_tag "products" do %>
+<div id="search_products">
     <% if @products.present? %>
         <% @products.each do |product| %>
-            <p class="mt-5"><span class="fw-bold">Name:</span> <%= product.name %> </p>
+            <p class="mt-5"><span class="fw-bold">Name:</span> <%= highlight(product.name, params[:query]) %> </p>
 
             <p class="mt-2"><span class="fw-bold">UPC:</span> <%= product.upc %> </p>
 
             <p class="mt-2"><span class="fw-bold">Available On:</span> <%= product.available_on.strftime("%d/%m/%Y")  %> </p>
 
-            <p class="mt-2"><span class="fw-bold">Properties:</span> ( <%= properties_listing_of product %> )
+            <p class="mt-2"><span class="fw-bold">Properties:</span> (<%= properties_listing_of product %>)
 
             <div>
                 <%= link_to "Edit", edit_user_product_path(current_user, product) , class: "btn btn-outline-primary" %>
 
                 <%= link_to "Delete", user_product_path(current_user, product), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?" }, class: "btn btn-outline-danger" %>
             </div>
+
         <% end %>
     <% else %>
         <p>No products!</p>
     <% end %>
-<% end %>
+</div>
